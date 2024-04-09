@@ -1,0 +1,60 @@
+meta:
+  exp_name: puppersim  # the name of this experiment
+  run_name: None # (computed in runtime)
+  seed: 1   # seed of the experiment 
+  torch_deterministic: True   # if toggled, `torch.backends.cudnn.deterministic=False` 
+  cuda: True   # if toggled, cuda will be enabled by default 
+  track: True   # if toggled, this experiment will be tracked with Weights and Biases
+  # capture_video: False   # whether to capture videos of the agent performances (check out `videos` folder)
+  save_model: True   # whether to save model into the `runs/{run_name}` folder
+  env_id: "Puppersim-v0"   # the id of the environment
+  timelimit: 1000
+  sac_instead: False
+
+# Algorithm specific arguments
+ppo:
+  eval_frequency: 200_000
+  total_timesteps: 10_000_000   # total timesteps of the experiments
+  learning_rate: 3e-4   # the learning rate of the optimizer 
+  num_envs: 32   # the number of parallel game environments 
+  num_steps: 2048   # the number of steps to run in each environment per policy rollout 
+  anneal_lr: True   # Toggle learning rate annealing for policy and value networks 
+  gamma: 0.99   # the discount factor gamma 
+  gae_lambda: 0.95   # the lambda for the general advantage estimation 
+  num_minibatches: 32   # the number of mini-batches 
+  update_epochs: 10   # the K epochs to update the policy 
+  norm_adv: True   # Toggles advantages normalization 
+  clip_coef: 0.2   # the surrogate clipping coefficient 
+  clip_vloss: True   # Toggles whether or not to use a clipped loss for the value function, as per the paper. 
+  ent_coef: 0.0   # coefficient of the entropy 
+  vf_coef: 0.5   # coefficient of the value function 
+  max_grad_norm: 0.5   # the maximum norm for the gradient clipping 
+  target_kl: None   # the target KL divergence threshold 
+
+sac:
+  total_timesteps: 1000000 #total timesteps of the experiments
+  buffer_size: int(1e6) #the replay memory buffer size
+  gamma: 0.99 #the discount factor gamma
+  tau: 0.005 #target smoothing coefficient (default: 0.005)
+  batch_size: 256 #the batch size of sample from the reply memory
+  learning_starts: 5e3 #timestep to start learning
+  policy_lr: 3e-4 #the learning rate of the policy network optimizer
+  q_lr: 1e-3 #the learning rate of the Q network network optimizer
+  policy_frequency: 2 #the frequency of training policy (delayed) Denis Yarats' implementation delays this by 2.
+  target_network_frequency: 1  #  the frequency of updates for the target nerworks
+  noise_clip: 0.5 #noise clip parameter of the Target Policy Smoothing Regularization
+  alpha: 0.2 #Entropy regularization coefficient.
+  autotune: True #automatic tuning of the entropy coefficient
+
+# to be filled in runtime
+batch_size: 0   # the batch size (computed in runtime) 
+minibatch_size: 0   # the mini-batch size (computed in runtime) 
+num_iterations: 0   # the number of iterations (computed in runtime) 
+
+sim2real:
+  history_len: 2
+  add_last_action: True
+  gaussian_obs_scale: 0.01
+  gaussian_act_scale: 0.01
+  action_repeat_max: 2
+  max_action_repeat_on_reset: 2

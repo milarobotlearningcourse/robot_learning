@@ -1,0 +1,72 @@
+env:
+    env_name: 'obstacles-roble-v0' # ['cheetah-roble-v0', 'reacher-roble-v0', 'obstacles-roble-v0' ]
+    max_episode_length: 200
+    exp_name: 'q2_obstacles_singleiteration'
+
+alg:
+    n_iter: 1
+    ensemble_size: 3
+    mpc_horizon: 10
+    mpc_num_action_sequences: 1000
+    mpc_action_sampling_strategy: 'random' ## ['random' | 'cem']
+    cem_iterations: 4
+    cem_num_elites: 5
+    cem_alpha: 1
+    add_sl_noise: True
+    num_agent_train_steps_per_iter: 20
+    batch_size_initial: 5000
+    batch_size: 1000
+    train_batch_size: 512
+    eval_batch_size: 400
+    learning_rate: 0.001
+    seed: 1
+    use_gpu: true
+    gpu_id: 0
+    discrete: False
+    ac_dim: 0 ## This will be overridden in the code
+    ob_dim: 0 ## This will be overridden in the code
+    network:
+        layer_sizes: [256, 256]
+        activations: ["tanh", "tanh"]
+        output_activation: "identity" 
+
+logging:
+    video_log_freq: 1 # How often to generate a video to log/
+    scalar_log_freq: 1 # How often to log training information and run evaluation during training.
+    save_params: true # Should the parameters given to the script be saved? (Always...)
+    random_seed: 1234
+    logdir: ""
+
+save_params: True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+

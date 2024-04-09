@@ -1,0 +1,51 @@
+env:
+    env_name: 'HalfCheetah-v2' # ['LunarLander-v3', 'MsPacman-v0', 'HalfCheetah-v2', 'CartPole-v0']
+    max_episode_length: 200
+    exp_name: 'todo'
+    atari: False
+
+alg:
+    double_q: False
+    batch_size: 64 ## The min amount of experience to collect before a training update
+    train_batch_size: 64 ## training batch size used for computing gradients of q function or policy
+    eval_batch_size: 1000 ## How much experience should be collected over the environment to evaluate the average reward of a policy
+    num_agent_train_steps_per_iter: 2 ## Number of training updates after #batch_size experience is collected. 
+    num_critic_updates_per_agent_update: 2 ## Number of training updates after #batch_size experience is collected.
+    use_gpu: False
+    gpu_id: 0
+    rl_alg: 'td3' ## RL training algorithm ['dqn', 'ddpg', 'td3', 'sac']
+    learning_starts: 10000  ## How much initial experience to collect before training begins
+    learning_freq: 1 
+    target_update_freq: 1
+    exploration_schedule: 0
+    optimizer_spec:  0
+    replay_buffer_size: 1000000
+    frame_history_len: 1
+    gamma: 0.95
+    critic_learning_rate: 1e-3
+    learning_rate: 1e-4
+    ob_dim: 0             # do not modify
+    ac_dim: 0             # do not modify
+    batch_size_initial: 0 # do not modify
+    discrete: True
+    grad_norm_clipping: True
+    n_iter: 50_000_000
+    polyak_avg: 0.01 #
+    td3_target_policy_noise: 0.05 #
+    td3_target_policy_noise_clip: 0.1 #
+    entropy_coeff: 0.2 ## SAC entropy coeff
+    policy_std: 0.1
+    nn_baseline: False
+    deterministic: True
+    network:
+        layer_sizes: [ 64, 64 ]
+        activations: [ "tanh", "tanh" ]
+        output_activation: "identity"
+
+logging:
+    video_log_freq: -1 # How often to generate a video to log/
+    scalar_log_freq: 10000 # How often to log training information and run evaluation during training.
+    save_params: false # Should the parameters given to the script be saved? (Always...)
+    random_seed: 1234
+    logdir: ""
+    debug: false

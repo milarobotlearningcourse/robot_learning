@@ -1,0 +1,7 @@
+
+env_name: "widowx"
+goal_indicies: [0,1,2]
+uniform_bounds: [[0.4, -0.2, -0.34], [0.8, 0.4, -0.1]]
+gaussian_bounds: [[0.6, 0.1, -0.2], [0.2, 0.2, 0.2]]
+k: 15
+goal_reached_threshold: -0.3

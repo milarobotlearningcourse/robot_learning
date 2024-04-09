@@ -1,0 +1,41 @@
+double_q: True
+batch_size: 4096 ## The min amount of experience to collect before a training update
+train_batch_size: 4096 ## training batch size used for computing gradients of q function or policy
+eval_batch_size: 4096 ## How much experience should be collected over the environment to evaluate the average reward of a policy
+num_agent_train_steps_per_iter: 1 ## Number of training updates after #batch_size experience is collected. 
+num_critic_updates_per_agent_update: 16 ## Number of training updates after #batch_size experience is collected.
+use_gpu: False
+gpu_id: 0
+rl_alg: 'pg' ## RL training algorithm ['ddpg', 'td3', 'sac','pg']
+learning_starts: 1024  ## How much initial experience to collect before training begins
+learning_freq: 1 
+target_update_freq: 1
+exploration_schedule: 0
+optimizer_spec:  0
+replay_buffer_size: 100000
+frame_history_len: 1
+gamma: 0.95
+critic_learning_rate: 1e-3
+learning_rate: 3e-4
+ob_dim: 0             # do not modify
+ac_dim: 0             # do not modify
+batch_size_initial: 0 # do not modify
+discrete: True
+grad_norm_clipping: True
+n_iter: 10000
+polyak_avg: 0.01 #
+td3_target_policy_noise: 0.1 #
+sac_entropy_coeff: 0.2
+policy_std: 0.05
+use_baseline: True
+gae_lambda: 0.9
+standardize_advantages: True 
+reward_to_go: False
+nn_baseline: True
+on_policy: True
+learn_policy_std: False
+deterministic: False
+network:
+    layer_sizes: [ 64, 32 ]
+    activations: [ "leaky_relu", "leaky_relu" ]
+    output_activation: "identity"

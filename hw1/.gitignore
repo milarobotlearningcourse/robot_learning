@@ -1,0 +1,5 @@
+/outputs/
+hw1/roble/expert_data/unlabelled/
+/.pytest_cache/
+/logs/
+/run_logs/

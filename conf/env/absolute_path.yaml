@@ -1,0 +1,3 @@
+
+expert_policy_file: /home/gberseth/playground/robot_learning/hw1/roble/policies/experts/Ant.pkl # Relative to where you're running this script from 
+expert_data: /home/gberseth/playground/robot_learning/hw1/roble/expert_data/expert_data_Ant-v2.pkl  # Relative to where you're running this script from

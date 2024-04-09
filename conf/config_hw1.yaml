@@ -1,0 +1,40 @@
+env: 
+  expert_policy_file: ../../../hw1/roble/policies/experts/Ant.pkl # Relative to where you're running this script from 
+  expert_data: ../../../hw1/roble/expert_data/expert_data_Ant-v2.pkl  # Relative to where you're running this script from
+  expert_unlabelled_data: ../../../hw1/roble/expert_data/unlabelled/unlabelled_data_Ant-v2.pkl  # Relative to where you're running this script from
+  exp_name: "bob"
+  env_name: Ant-v2 # choices are [Ant-v2, Humanoid-v2, Walker2d-v2, HalfCheetah-v2, Hopper-v2]
+  max_episode_length: 1000
+  render: true
+  
+alg:
+  num_rollouts: 5
+  train_idm: false
+  do_dagger: true
+  num_agent_train_steps_per_iter: 1_000 # number of gradient steps for training policy (per iter in n_iter)
+  num_idm_train_steps_per_iter: 10_000
+  n_iter: 3
+  batch_size: 1000 # training data collected (in the env) during each iteration
+  eval_batch_size: 1000 # eval data collected (in the env) for logging metrics
+  train_batch_size: 100 # number of sampled data points to be used per gradient/train step
+  learning_rate: 5e-3 # THe learning rate for BC
+  max_replay_buffer_size: 1000000 ## Size of the replay buffer
+  use_gpu: True
+  gpu_id: 0 # The index for the GPU (the computer you use may have more than one)
+  discrete: False
+  ac_dim: 0 ## This will be overridden in the code
+  ob_dim: 0 ## This will be overridden in the code
+  network:
+    layer_sizes: [64, 32]
+    activations: ["tanh", "tanh"]
+    output_activation: "identity" 
+
+logging:
+  video_log_freq: 5 # How often to generate a video to log/
+  scalar_log_freq: 1 # How often to log training information and run evaluation during training.
+  save_params: true # Should the parameters given to the script be saved? (Always...)
+  logdir: "" ## This will be overridden in the code
+  random_seed: 1234
+  
+  
+

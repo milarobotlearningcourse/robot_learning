@@ -1,0 +1,7 @@
+
+env_name: "antmaze"
+goal_indicies: [0,1]
+uniform_bounds: [[-4,-4], [20,4]]
+gaussian_bounds: [[0,8], [4,4]]
+k: 15
+goal_reached_threshold: -5.0
