@@ -55,6 +55,8 @@ def make_pupper_task(seed):
 
 def get_env_thunk(seed, sim2real_wrap, idx, capture_video, video_save_path, timelimit):
     def thunk():
+        np.random.seed(seed)
+
         env = make_pupper_task(seed) # replace with gym.make todo @ guillaume et jaydan
 
         env = TimeLimit(env, timelimit)
