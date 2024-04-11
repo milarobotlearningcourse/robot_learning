@@ -10,7 +10,7 @@ class ActionRepeatWrapper(Wrapper):
         assert max_repeat >= 1
 
     def _sample_num_repeat(self):
-        return int(np.random.randint(1, self.max_repeat))
+        return int(np.random.randint(1, self.max_repeat+1))
 
     def step(self, action):
         # TODO: repeat action a random number of times

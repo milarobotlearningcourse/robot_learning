@@ -12,7 +12,7 @@ class RandomActResetEnv(Wrapper):
         self.max_num_random_act=max_num_random_act
 
     def _sample_num_repeat(self):
-        return int(np.random.randint(0, self.max_num_random_act))
+        return int(np.random.randint(0, self.max_num_random_act+1))
 
     def reset(self, **kwargs) -> Tuple[np.ndarray, dict]:
         obs, ORIG_INFO = super(RandomActResetEnv, self).reset(**kwargs)
