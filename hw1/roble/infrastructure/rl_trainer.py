@@ -93,7 +93,6 @@ class RL_Trainer(object):
         except:
             pass
         
-        self.add_wrappers()
         self._agent = agent_class(self._env, **combined_params)
         self._log_video = False
         self._log_metrics = True

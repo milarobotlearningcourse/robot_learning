@@ -9,6 +9,7 @@ These installation instructions are created for Ubuntu 20.04. If you are using a
 ```
 sudo apt-get install libosmesa6-dev
 sudo apt-get install patchelf
+sudo apt-get install swig
 ```
 
 ## Install Python Environment
