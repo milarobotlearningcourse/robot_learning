@@ -36,7 +36,7 @@ Behavioral Cloning
     We recommend that you read the files in the following order. For
     some files, you will need to fill in blanks, labeled `TODO`.
 
-    -   `run_hw1.py`
+    -   `hw1.py`
 
     -   `infrastructure/rl_trainer.py`
 
